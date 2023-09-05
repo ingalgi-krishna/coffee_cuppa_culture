@@ -1,0 +1,1060 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Om Coffee Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Arial", sans-serif;
+    }
+
+    body {
+font-family: 'Trebuchet MS';
+      font-family: Arial, sans-serif;
+      background-color: #0e191d;
+      line-height: 1.6;
+    }
+
+    header {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      background-color: #714747;
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      margin-left: 10%;
+      vertical-align: middle;
+      height: 75px;
+      width: 75px;
+    }
+
+    nav ul {
+      margin-right: 2%;
+      list-style-type: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      font-weight: 700;
+      text-transform: uppercase;
+font-family: 'Trebuchet MS';
+      padding: 20px;
+      color: #e6e0d4;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      transition: 0.3s ease;
+      color: #cec3ac;
+    }
+
+    /* Full-size page styles */
+    header,
+    main,
+    footer {
+      max-width: 100%;
+    }
+
+    header {
+      background-image: linear-gradient(to right bottom,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.8)),
+        url("images/background.jpeg");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+font-family: 'Shadows Into Light', cursive;
+      font-size: 100px;
+      vertical-align: middle;
+      font-weight:900;
+      letter-spacing: 2px;
+      line-height: 100%;
+      margin-bottom: 10%;
+    }
+
+    header p {
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 2px;
+font-family: 'Shadows Into Light', cursive;
+      
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      font-family: 'Trebuchet MS';
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #about {
+      margin-top: 2%;
+      text-align: center;
+      height: 100vh;
+    }
+
+    /* Gallery styles */
+    .gallery {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .menu {
+      height: max-content;
+      background-color: #0e191d;
+    }
+
+    .gallery img {
+      border-radius: 20px;
+      transition: transform 0.5s ease;
+      width: 100%;
+      height: auto;
+    }
+
+    .gallery img:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Order Now styles */
+    .order-now-form {
+      text-align: center;
+    }
+
+    .order-now-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .order-now-form input[type="text"],
+    .order-now-form input[type="email"],
+    .order-now-form input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #333333;
+    }
+
+    .order-now-form input[type="submit"] {
+      background-color: #333333;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    /* Cart page styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #714747;
+    }
+
+    th {
+      background-color: #714747;
+      color: #ffffff;
+    }
+
+    .cart {
+      font-family: 'Trebuchet MS';
+      color: #714747;
+      font-weight: 600;
+      background-color: #0e191d;
+      height: fit-content;
+    }
+
+    .cart-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cart-actions input[type="number"] {
+      border: #714747;
+      margin-top: 2vh;
+      height: 4vh;
+      background-color: #e6e0d4;
+      color: #0e191d;
+      width: 60px;
+      padding: 5px;
+    }
+
+    .cart-actions button {
+      transition: 0.3s ease;
+      margin-top: 2vh;
+      height: 4vh;
+      background-color: #e6e0d4;
+      color: #0e191d;
+      text-transform: uppercase;
+      font-weight: 550;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cart-actions button:hover {
+      background-color: #97765F;
+    }
+
+    /* Coffee Catalog styles */
+    .coffee-catalog {
+      font-family: 'Trebuchet MS';
+      height: max-content;
+      background-color: #0e191d;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .coffee-catalog-item1 {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/Americano.jpg");
+
+  background-size: cover;
+  background-position: center;
+      height: 30vh;
+      background-color: #714747;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .coffee-catalog-item1:hover {
+      transform: translateY(-5px);
+    }
+
+    .coffee-catalog-item1 img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item1 h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .coffee-catalog-item1 p {
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item1 button {
+      height: 6vh;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0e191d;
+      color: #e6e0d4;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .coffee-catalog-item1 button:hover {
+      background-color: #000000;
+    }
+
+
+    .coffee-catalog-item2 {
+ background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/espresso.png");
+  background-size: cover;
+  background-position: center;
+      height: 30vh;
+      background-color: #714747;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .coffee-catalog-item2:hover {
+      transform: translateY(-5px);
+    }
+
+    .coffee-catalog-item2 img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item2 h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .coffee-catalog-item2 p {
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item2 button {
+      height: 6vh;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0e191d;
+      color: #e6e0d4;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .coffee-catalog-item2 button:hover {
+      background-color: #000000;
+    }
+
+   .coffee-catalog-item3 {
+background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/Cappuccino.jpg");
+  background-size: cover;
+  background-position: center;
+      height: 30vh;
+      background-color: #714747;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .coffee-catalog-item3:hover {
+      transform: translateY(-5px);
+    }
+
+    .coffee-catalog-item3 img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item3 h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .coffee-catalog-item3 p {
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item3 button {
+      height: 6vh;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0e191d;
+      color: #e6e0d4;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .coffee-catalog-item3 button:hover {
+      background-color: #000000;
+    }
+
+
+   .coffee-catalog-item4 img {
+
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item4 h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .coffee-catalog-item4 p {
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item4 button {
+      height: 6vh;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0e191d;
+      color: #e6e0d4;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .coffee-catalog-item4 button:hover {
+      background-color: #000000;
+    }
+
+     .coffee-catalog-item4 {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/latte.jpg");
+  background-size: cover;
+  background-position: center;
+      height: 30vh;
+      background-color: #714747;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .coffee-catalog-item4:hover {
+      transform: translateY(-5px);
+    }
+
+
+
+    .coffee-catalog-item5 img {
+
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item5 h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .coffee-catalog-item5 p {
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item5 button {
+      height: 6vh;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0e191d;
+      color: #e6e0d4;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .coffee-catalog-item5 button:hover {
+      background-color: #000000;
+    }
+
+     .coffee-catalog-item5 {
+background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/Mochaccino.jpg");
+  background-size: cover;
+  background-position: center;
+      height: 30vh;
+      background-color: #714747;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .coffee-catalog-item5:hover {
+      transform: translateY(-5px);
+    }
+
+
+     .coffee-catalog-item6 img {
+
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item6 h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .coffee-catalog-item6 p {
+      margin-bottom: 10px;
+    }
+
+    .coffee-catalog-item6 button {
+      height: 6vh;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0e191d;
+      color: #e6e0d4;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .coffee-catalog-item6 button:hover {
+      background-color: #000000;
+    }
+
+     .coffee-catalog-item6 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/Almond\ Cappuccino.jpg");
+  background-size: cover;
+  background-position: center;
+      height: 30vh;
+      background-color: #714747;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .coffee-catalog-item6:hover {
+      transform: translateY(-5px);
+    }
+
+
+
+    /* Review section styles */
+    .reviews {
+      font-family: 'Trebuchet MS';
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      height: max-content;
+      background-color: #0e191d;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    #review h2,
+    #gallery h2 {
+      font-family: 'Trebuchet MS';
+      margin-top: 5%;
+    }
+
+    .review-badge {
+
+      height: 30vh;
+      background-color: #714747;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      width: 200px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .review-badge:hover {
+      transform: translateY(-5px);
+    }
+
+    .review-badge p {
+      margin-bottom: 10px;
+    }
+
+    /* Coffee Menu page styles */
+    .coffee-menu-item {
+      background-color: #f8f8f8;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .coffee-menu-item h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .coffee-menu-item p {
+      margin-bottom: 10px;
+    }
+
+    /* Footer styles */
+    /* Contact section */
+    #contact {
+      font-family: 'Trebuchet MS';
+      height: fit-content;
+      background-color: #0e191d;
+      color: #e6e0d4;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-family: 'Trebuchet MS';
+      font-size: 30px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    #contact p {
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #714747;
+      padding: 20px;
+      color: #e6e0d4;
+      text-align: center;
+    }
+
+    footer ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    footer ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Feedback form */
+    #contact form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    #contact h2 {
+      font-family: 'Trebuchet MS';
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #e6e0d4;
+    }
+
+    .btn {
+      color: #0e191d;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #e6e0d4;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      margin-bottom: 30px;
+    }
+
+    .btn:hover {
+      background-color: #97765F;
+    }
+
+
+    /* Global styles */
+    h1,
+    h2,
+    h3,
+    p {
+     font-family: 'Trebuchet MS';
+      color: #e6e0d4;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <img src="images/logo.png" alt="Om's Cuppa Culture" />
+    </div>
+    <ul>
+      <li><a href="#menu">Shop Now</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#review">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a href="login.html">Admin Login</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Om's <br />
+      Cuppa Culture</h1>
+    <p>Where serenity meets flavour</p>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>Gallery</h2>
+      <div class="gallery" id="gallery">
+        <img src="images/image1.jpg" alt="Image 1" />
+        <img src="images/image2.jpg" alt="Image 2" />
+        <img src="images/image3.jpg" alt="Image 3" />
+        <img src="images/image4.jpg" alt="Image 1" />
+        <img src="images/image5.jpg" alt="Image 2" />
+        <img src="images/image6.jpg" alt="Image 3" />
+      </div>
+
+
+
+    </section>
+    <section id="review">
+      <h2>Reviews</h2>
+      <div class="reviews">
+        <div class="review-badge">
+          <p>
+            "Incredible coffee and cozy atmosphere—a must-visit for coffee enthusiasts."
+          <div class="rating">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+          </div>
+          <p>- Krishna Ingalgi</p>
+        </div>
+        <div class="review-badge">
+          <p>
+            "Friendly staff, exceptional coffee, and a warm ambiance make this place a favorite."
+          </p>
+          <div class="rating">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9734;</span>
+          </div>
+          <p>- Sunny Dhakane</p>
+        </div>
+        <div class="review-badge">
+          <p>
+            "Delicious brews, top-notch service, and a welcoming vibe—my new go-to spot."
+          <div class="rating">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+          </div>
+          <p>- Mukul Shitole</p>
+        </div>
+        <div class="review-badge">
+          <p>
+            "Perfectly crafted lattes, friendly baristas, and a delightful experience overall."
+          </p>
+          <div class="rating">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+          </div>
+          <p>- Shreyas Balsaraf</p>
+        </div>
+        <div class="review-badge">
+          <p>
+            "A hidden gem with exceptional coffee and a charming atmosphere."
+          </p>
+          <div class="rating">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+          </div>
+          <p>- Sanjay Halle</p>
+        </div>
+        <div class="review-badge">
+          <p>
+            "Outstanding coffee, great service, and a cozy setting—I'm hooked!"
+          </p>
+          <div class="rating">
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+            <span>&#9733;</span>
+          </div>
+          <p>- Gaurav Divekar</p>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+
+
+    <div class="menu">
+      <section id="menu">
+        <h2>Coffee Menu</h2>
+        <div class="coffee-catalog">
+          <div class="coffee-catalog-item1">
+            <h3>Espresso</h3>
+            <p>Strong black coffee.</p>
+            <button onclick="addToCart('Espresso', 99)">Add to Cart</button>
+          </div>
+          <div class="coffee-catalog-item2">
+            <h3>Americano</h3>
+            <p>Espresso diluted with hot water.</p>
+            <button onclick="addToCart('Americano', 199)">Add to Cart</button>
+          </div>
+          <div class="coffee-catalog-item3">
+            <h3>Cappuccino</h3>
+            <p>Espresso, steamed milk, and frothed milk.</p>
+            <button onclick="addToCart('Cappuccino', 149)">Add to Cart</button>
+          </div>
+          <div class="coffee-catalog-item4">
+            <h3>Latte</h3>
+            <p>Espresso and steamed milk.</p>
+            <button onclick="addToCart('Latte', 209)">Add to Cart</button>
+          </div>
+          <div class="coffee-catalog-item5">
+            <h3>Mochaccino</h3>
+            <p>Rich chocolate espresso delight.</p>
+            <button onclick="addToCart('Mochaccino', 249)">Add to Cart</button>
+          </div>
+          <div class="coffee-catalog-item6">
+            <h3>Almond Cappuccino</h3>
+            <p>Fragrant almond-infused perfection.</p>
+            <button onclick="addToCart('Almond Cappuccino', 299)">Add to Cart</button>
+          </div>
+        </div>
+
+    </div>
+    </section>
+    </div>
+    </div>
+
+
+    <div class="cart">
+      <section id="cart">
+        <h2>Cart</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items"></tbody>
+        </table>
+        <div id="cart-total"></div>
+        <div class="cart-actions">
+          <input type="number" id="quantity-input" min="1" value="1" />
+          <button onclick="updateCart()">Update Quantity</button>
+          <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+
+
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>Feel free to leave us your feedback:</p>
+
+
+        <form id="feedback-form" action="https://formspree.io/f/mrgwzkwy" method="POST">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="mobile">Mobile Number:</label>
+            <textarea id="mobile" name="mobile" pattern="\d{10}" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Submit</button>
+        </form>
+        <p>Visit us at:</p>
+        <p>
+          Om's Cuppa Culture,<br />
+          Katraj Road<br />
+          Ravet, Pune,<br />
+          Mahrashtra, 411039
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy;2023 Om's Cuppa Culture. All rights reserved.</p>
+      <ul>
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=100023590609059"><i class="fa fa-1.5x fa-facebook"></i></a>
+        </li>
+        <li>
+          <a href="https://instagram.com/om_pawar101"><i class="fa fa-1.5x fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="https://twitter.com/OmPawar1129684"><i class="fa fa-1.5x fa-twitter"></i></a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const cartItems = [];
+
+    function addToCart(item, price) {
+      const quantityInput = document.getElementById("quantity-input");
+      const quantity = parseInt(quantityInput.value);
+
+      const existingItem = cartItems.find(
+        (cartItem) => cartItem.item === item
+      );
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cartItems.push({ item, quantity, price });
+      }
+
+      quantityInput.value = 1;
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItemsContainer = document.getElementById("cart-items");
+      const cartTotalContainer = document.getElementById("cart-total");
+      cartItemsContainer.innerHTML = "";
+      let total = 0;
+
+      cartItems.forEach((cartItem) => {
+        const { item, quantity, price } = cartItem;
+        const itemTotal = quantity * price;
+        total += itemTotal;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item}</td>
+          <td>${quantity}</td>
+          <td>₹${price.toFixed(2)}</td>
+          <td>₹${itemTotal.toFixed(2)}</td>
+        `;
+        cartItemsContainer.appendChild(row);
+      });
+
+      const totalRow = document.createElement("tr");
+      totalRow.innerHTML = `
+        <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+        <td>₹${total.toFixed(2)}</td>
+      `;
+      cartItemsContainer.appendChild(totalRow);
+
+      cartTotalContainer.textContent = `Total: ₹${total.toFixed(2)}`;
+    }
+
+    function checkout() {
+      const total = calculateTotal();
+      alert(`Thank You! Your Order Placed Successfully. Total price: ₹${total}`);
+    }
+
+    function calculateTotal() {
+      let total = 0;
+      cartItems.forEach((cartItem) => {
+        const { quantity, price } = cartItem;
+        total += price * quantity;
+      });
+      return total.toFixed(2);
+    }
+  </script>
+</body>
+
+</html>
